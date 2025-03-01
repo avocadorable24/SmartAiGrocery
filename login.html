@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Smart Grocery AI Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('C:/Users/us/Desktop/Smart Grocery Assistant/Pictures/loginbg.jpeg'); /* Replace with a food-themed image URL */
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+        .login-container h1 {
+            text-align: center;
+            color: #4CAF50; /* Food-themed color */
+        }
+        .input-field {
+            margin: 10px 0;
+        }
+        .input-field label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-field input {
+            width: 100%;
+            padding: 5px;
+            margin-right: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-button {
+            background-color: #4CAF50; /* Food-themed color */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .login-button:hover {
+            background-color: #45a049;
+        }
+        .footer-links {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .footer-links a {
+            color: #4CAF50; /* Food-themed color */
+            text-decoration: none;
+        }
+	.error-message {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <div class="input-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="input-field">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
+        <button class="login-button" onclick="login()">Login</button>
+        <div class="footer-links">
+            <a href="#">Forgot Password?</a><br>
+            <a href="C:\Users\us\Desktop\Smart Grocery Assistant\signup.html">Don't have an account? Sign up</a>
+        </div>
+	<div class="error-message" id="error-message"></div>
+    </div>
+    
+    <script>
+        // Sample registered users (for demonstration purposes)
+        const registeredUsers = [
+            { email: "user1@example.com", password: "password123" },
+            { email: "user2@example.com", password: "mypassword" }
+        ];
+
+        function login() {
+            const emailInput = document.getElementById("email").value;
+            const passwordInput = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            // Clear previous error message
+            errorMessage.textContent = "";
+
+            // Check if email is registered
+            const user = registeredUsers.find(user => user.email === emailInput);
+
+            if (!user) {
+                errorMessage.textContent = "Email not registered. Please sign up.";
+                return;
+            }
+
+            // Check if password is correct
+            if (user.password !== passwordInput) {
+                errorMessage.textContent = "Wrong password. Please try again.";
+                document.getElementById("password").value = ""; // Clear password field
+                return;
+            }
+
+            // If login is successful, redirect or perform next steps
+            alert("Login successful!"); // Replace with actual login logic
+        }
+    </script>
+</body>
+</html>
+
+
